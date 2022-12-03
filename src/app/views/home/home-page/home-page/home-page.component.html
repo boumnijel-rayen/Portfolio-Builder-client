@@ -2,7 +2,7 @@
     <header>
         <img src="/assets/img/logo.png" alt="">
         <div class="right-header">
-            <button>Admin</button>
+            <button routerLink="/loginAdmin">Admin</button>
             <ul>
                 <li><i class="bi bi-linkedin"></i></li>
                 <li><i class="bi bi-facebook"></i></li>
@@ -13,5 +13,17 @@
     </header>
     <div class="component__body">
         <h2>Portfolio Builder</h2>
+        <div class="wrapper">
+            <div class="static-text">Created by</div>
+            <ul class="dynamic-text">
+                <li>Rayen Boumnijel</li>
+                <li>Saif Bahri</li>
+                <li>Rihab Arfaoui</li>
+            </ul>
+        </div>
+        <div class="buttons">
+            <button routerLink="/login">Sign IN</button>
+            <button routerLink="/user/register">Sign UP</button>
+        </div>
     </div>
 </div>
