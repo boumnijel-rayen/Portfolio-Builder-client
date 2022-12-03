@@ -1,0 +1,41 @@
+<div class="component">
+    <div class="back">
+        <i class="bi bi-arrow-left" routerLink="/"></i>
+    </div>
+    <div class="container">
+        <div class="row p-0">
+            <div class="col-3 coll-1">
+                <img src="/assets/img/loginAdmin.jpg" alt="">
+            </div>
+            <div class="col-6 coll-2">
+                <div class="signIn">
+                    <i class="bi bi-person-circle"></i>
+                    <h3>Sign In</h3>
+                </div>
+                <form [formGroup]="myForm" (ngSubmit)="connect()">
+                    <div class="form-box">
+                        <div class="input-error">
+                            <div class="input-box">
+                                <input type="email" formControlName="email" class="input" name="email" id="email" required>
+                                <label for="email">Email </label>
+                            </div>
+                            <div class="error" *ngIf="myForm.get('email').touched && myForm.get('email').hasError('required')">email required</div>
+                            <div class="error" *ngIf="myForm.get('email').touched && myForm.get('email').hasError('email')">email invalid</div>
+                        </div>
+                        <div class="input-error">
+                            <div class="input-box">
+                                <input type="password" formControlName="password" class="input" name="password" id="password" required>
+                                <label for="password">Password </label>
+                            </div>
+                            <div class="error" *ngIf="myForm.get('password').touched && myForm.get('password').hasError('required')">password required</div>
+                        </div>
+                        <!-- <div class="alert alert-danger invalid" role="alert">
+                            Authentication invalid
+                        </div> -->
+                        <button type="submit" [disabled]="myForm.invalid">Connect</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

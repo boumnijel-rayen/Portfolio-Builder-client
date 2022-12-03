@@ -1,0 +1,75 @@
+.component{
+    background-image : linear-gradient(rgba(0,0,0,0.75),
+    rgba(0,0,0,0.75)),url("/assets/img/homePage.jpg");
+    background-size: cover;
+    background-position: center; 
+    height: 100vh;
+    width: 100%;
+}
+
+header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 80px;
+    align-items: center;
+}
+
+header img{
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+header ul{
+    display: flex;
+    list-style: none;
+    margin-right: 20px;
+}
+
+header ul li{
+    margin: 0 8px;
+}
+
+header ul li i{
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+}
+
+header ul li i:hover{
+    color: #F7BC39;
+}
+
+.right-header{
+    display: flex;
+    align-items: center;
+}
+
+.right-header button{
+    border: none;
+    outline: none;
+    background-color: #F7BC39;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-bottom: 15px;
+    margin-right: 20px;
+}
+
+.component__body{
+    border: 1px solid #F7BC39;
+    height: 100px;
+    width: 100%;
+}
+
+.component__body h2{
+    color: white;
+    font-size: 70px;
+    text-align: center;
+    margin-top: 20px;
+}
