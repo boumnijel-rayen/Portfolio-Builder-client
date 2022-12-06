@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -9,7 +11,7 @@ import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn,
 export class SignUpComponent implements OnInit {
 
   myForm : any;
-  constructor(private formBuilder : FormBuilder) { 
+  constructor(private formBuilder : FormBuilder, private authService : AuthService, private router : Router) { 
     this.myForm = this.formBuilder.group({
       name : ['', Validators.required],
       phone : ['', [Validators.required, Validators.minLength(8), Validators.maxLength(8)]],
@@ -79,7 +81,19 @@ export class SignUpComponent implements OnInit {
   }
 
   add(){
-    console.log(this.myForm.value);
+    let user = {
+      name : this.myForm.value.name,
+      phone : this.myForm.value.phone,
+      email : this.myForm.value.email,
+      password : this.myForm.value.password
+    }
+
+    this.authService.signUp(user).subscribe(
+      (data:any) => {
+        console.log(data);
+        this.router.navigate(['/login']);
+      }
+    );
   }
 
 }

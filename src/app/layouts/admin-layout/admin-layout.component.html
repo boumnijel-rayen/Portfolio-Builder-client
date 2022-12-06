@@ -1,2 +1,20 @@
-<p>admin-layout works!</p>
-<router-outlet></router-outlet>
+<div class="sidebar">
+    <div class="logo">
+        <img src="assets/img/logo.png" alt="">
+    </div>
+    <div class="profile">
+        <h3>Admin</h3>
+        <p>username</p>
+    </div>
+    <ul class="menu">
+        <li routerLink="/admin" #profile (click)="changePrColor()"><i class="bi bi-people-fill"></i> Profiles</li>
+        <li routerLink="/admin/portfolios" #portfolio (click)="changePoColor()"><i class="bi bi-person-badge"></i> Portfolios</li>
+    </ul>
+    <div class="out" (click)="logout()">
+        <i class="bi bi-door-open-fill"></i>
+        Log out
+    </div>
+</div>
+<div class="container">
+    <router-outlet></router-outlet>
+</div>

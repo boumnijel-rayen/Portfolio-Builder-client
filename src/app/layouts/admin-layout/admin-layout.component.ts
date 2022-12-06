@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-layout',
@@ -7,9 +8,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminLayoutComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('profile') profile: any;
+  @ViewChild('portfolio') portfolio: any;
+  constructor(private router : Router) { }
 
   ngOnInit(): void {
+  }
+
+  changePrColor(){
+    this.profile.nativeElement.style.background = 'linear-gradient(120deg,#5a2ff5, #58e6ff)';
+    this.profile.nativeElement.style.color = 'white';
+    this.portfolio.nativeElement.style.background = 'rgba(255, 255, 255, 0.979)';
+    this.portfolio.nativeElement.style.color = 'rgb(13, 37, 255)';
+  }
+
+  changePoColor(){
+    this.portfolio.nativeElement.style.background = 'linear-gradient(120deg,#5a2ff5, #58e6ff)';
+    this.portfolio.nativeElement.style.color = 'white';
+    this.profile.nativeElement.style.background = 'rgba(255, 255, 255, 0.979)';
+    this.profile.nativeElement.style.color = 'rgb(13, 37, 255)';
+  }
+
+  logout(){
+    localStorage.removeItem('token_Admin');
+    localStorage.removeItem('id_Admin');
+    this.router.navigate(['/loginAdmin']);
   }
 
 }

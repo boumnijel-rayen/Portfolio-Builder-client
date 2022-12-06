@@ -11,10 +11,13 @@ const routes: Routes = [
     {path: 'login', loadChildren: () => import('./views/home/sign-in-user/sign-in-user.module').then(m => m.SignInUserModule)},
     {path: 'register', loadChildren: () => import('./views/home/sign-up/sign-up.module').then(m => m.SignUpModule)},
   ]},
-  {path: 'admin', component: AdminLayoutComponent},
+  {path: 'admin', component: AdminLayoutComponent, children: [
+    {path: 'portfolios', loadChildren: () => import('./views/admin/portfolios/portfolios.module').then(m => m.PortfoliosModule)},
+    {path: '', loadChildren: () => import('./views/admin/profiles/profiles.module').then(m => m.ProfilesModule)}
+  ]},
   {path: 'user', component: UserLayoutComponent, children: [
     {path: 'create', loadChildren: () => import('./views/user/create-portfolio/create-portfolio.module').then(m => m.CreatePortfolioModule)},
-    {path: 'show', loadChildren: () => import('./views/user/show-portfolio/show-portfolio.module').then(m => m.ShowPortfolioModule)}
+    {path: '', loadChildren: () => import('./views/user/show-portfolio/show-portfolio.module').then(m => m.ShowPortfolioModule)}
   ]}
 ];
 

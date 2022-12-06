@@ -29,9 +29,9 @@
                             </div>
                             <div class="error" *ngIf="myForm.get('password').touched && myForm.get('password').hasError('required')">password required</div>
                         </div>
-                        <!-- <div class="alert alert-danger invalid" role="alert">
+                        <div class="alert alert-danger invalid" *ngIf="authFailed" role="alert">
                             Authentication invalid
-                        </div> -->
+                        </div>
                         <button type="submit" [disabled]="myForm.invalid">Connect</button>
                     </div>
                 </form>
