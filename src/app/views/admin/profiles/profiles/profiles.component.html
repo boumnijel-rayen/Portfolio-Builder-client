@@ -12,31 +12,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>2022-11-25 10:50:13</td>
-                    <td>200</td>
-                    <td>250</td>
-                    <td>250</td>
+                <tr *ngFor="let profile of profiles">
+                    <td>{{profile.id}}</td>
+                    <td>{{profile.name}}</td>
+                    <td>{{profile.email}}</td>
+                    <td>{{profile.phone}}</td>
                     <td>
-                        <button type="button" class="btn btn-danger">Bannir</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2022-11-25 10:50:13</td>
-                    <td>200</td>
-                    <td>250</td>
-                    <td>250</td>
-                    <td>
-                        <button type="button" class="btn btn-danger">Bannir</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2022-11-25 10:50:13</td>
-                    <td>200</td>
-                    <td>250</td>
-                    <td>250</td>
-                    <td>
-                        <button type="button" class="btn btn-danger">Bannir</button>
+                        <button type="button" (click)="deleteProfile(profile.id)" class="btn btn-danger">Bannir</button>
                     </td>
                 </tr>
             </tbody>

@@ -11,28 +11,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>2022-11-25 10:50:13</td>
-                    <td>200</td>
-                    <td>250</td>
+                <tr *ngFor="let portfolio of portfolios">
+                    <td>{{portfolio.id}}</td>
+                    <td>{{portfolio.full_name}}</td>
+                    <td>{{portfolio.occupation}}</td>
                     <td>
-                        <button type="button" class="btn btn-danger">Supprimer</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2022-11-25 10:50:13</td>
-                    <td>200</td>
-                    <td>250</td>
-                    <td>
-                        <button type="button" class="btn btn-danger">Supprimer</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2022-11-25 10:50:13</td>
-                    <td>200</td>
-                    <td>250</td>
-                    <td>
-                        <button type="button" class="btn btn-danger">Supprimer</button>
+                        <button type="button" (click)="deletePortfolio(portfolio.id)" class="btn btn-danger">Supprimer</button>
                     </td>
                 </tr>
             </tbody>
