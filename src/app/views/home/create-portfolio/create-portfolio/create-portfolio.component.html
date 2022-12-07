@@ -1,0 +1,240 @@
+<div class="component">
+    <div class="center">
+
+        <!-- STEP 1 -->
+
+        <form id="form1" #form1 [formGroup]="myForm1">
+            <h2>General Information</h2>
+            <h4>Step 1</h4>
+            <div class="txt">
+                <input type="text" formGroupName="fullname" name="fullname" required>
+                <span></span>
+                <label>Full name</label>
+            </div>
+            <div class="txt">
+                <input type="text" name="occupation" formControlName="occupation" required>
+                <span></span>
+                <label>Occupation</label>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Career summary</label>
+                <textarea class="form-control" formControlName="career" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Philosophy statement</label>
+                <textarea class="form-control" formControlName="philosophy" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <div class="btn-box">
+                <button class="btnn" (click)="nextForm1()">Next</button>
+            </div>
+        </form>
+
+        <!-- STEP 2 -->
+
+        <form id="form2" #form2 [formGroup]="myForm2">
+            <h2>Biography</h2>
+            <h4>Step 2</h4>
+            <div class="txt">
+                <input type="text" formControlName="email" name="email" required>
+                <span></span>
+                <label>Email</label>
+            </div>
+            <div class="txt">
+                <input type="text" formControlName="website" name="website" required>
+                <span></span>
+                <label>Personal web site</label>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Biography</label>
+                <textarea class="form-control" formControlName="biography" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <div class="btn-box">
+                <button class="btnn" (click)="backForm2()">Back</button>
+                <button class="btnn" (click)="nextForm2()">Next</button>
+            </div>
+        </form>
+
+        <!-- STEP 3 -->
+
+        <form id="form3" [formGroup]="myForm3" #form3>
+            <h2>Professional accomplishments</h2>
+            <h4>Step 3</h4>
+            <div class="flex">
+                <div class="txt">
+                    <input type="text" #accomplishment name="accomplishment" required>
+                    <span></span>
+                    <label>Accomplishment</label>
+                </div>
+                <div class="txt">
+                    <input type="text" #category name="category" required>
+                    <span></span>
+                    <label>Category</label>
+                </div>
+            </div>
+            <div class="flex">
+                <div class="txt">
+                    <input type="text" #proof name="proof" required>
+                    <span></span>
+                    <label>Proof Link</label>
+                </div>
+                <div class="btn-add">
+                    <button class="btnn" (click)="addAccomplishment()">Add</button>
+                </div>
+            </div>
+            <div class="input-box">
+                <select class="accomplishments" formControlName="accomplishments" #accomplishments size="10" name="accomplishments" id="accomplishments">
+                </select>
+            </div>
+            <div class="btn-box">
+                <button class="btnn" (click)="backForm3()">Back</button>
+                <button class="btnn" (click)="nextForm3()">Next</button>
+            </div>
+        </form>
+
+        <!-- STEP 4 -->
+
+        <form id="form4" [formGroup]="myForm4" #form4>
+            <h2>Awards and Honors</h2>
+            <h4>Step 4</h4>
+            <div class="flex">
+                <div class="txt">
+                    <input type="text" #title name="title" required>
+                    <span></span>
+                    <label>Title</label>
+                </div>
+                <div class="txt">
+                    <input type="text" #level name="recognition_level" required>
+                    <span></span>
+                    <label>Recognition level</label>
+                </div>
+            </div>
+            <div class="flex">
+                <div class="txt">
+                    <input type="text" #proof4 name="proof" required>
+                    <span></span>
+                    <label>Proof Link</label>
+                </div>
+                <div class="date">
+                    <label>Date</label>
+                    <input type="date" #date name="date" required>
+                </div>
+            </div>
+            <div class="btn-add">
+                <button class="btnn" (click)="addAward()">Add</button>
+            </div>
+            <div class="input-box">
+                <select class="awards" formControlName="awards" #awards size="7" name="awards" id="awards">
+                </select>
+            </div>
+            <div class="btn-box">
+                <button class="btnn" (click)="backForm4()">Back</button>
+                <button class="btnn" (click)="nextForm4()">Next</button>
+            </div>
+        </form>
+
+        <!-- STEP 5 -->
+
+        <form id="form5" [formGroup]="myForm5" #form5>
+            <h2>Certifications</h2>
+            <h4>Step 5</h4>
+            <div class="flex">
+                <div class="txt">
+                    <input type="text" #title5 name="title" required>
+                    <span></span>
+                    <label>Title</label>
+                </div>
+                <div class="txt">
+                    <input type="text" #description name="description" required>
+                    <span></span>
+                    <label>Description</label>
+                </div>
+            </div>
+            <div class="flex">
+                <div class="txt">
+                    <input type="text" #linkD name="linkD" required>
+                    <span></span>
+                    <label>Link documents</label>
+                </div>
+                <div class="btn-add">
+                    <button class="btnn" (click)="addCertification()">Add</button>
+                </div>
+            </div>
+            <div class="input-box">
+                <select class="certifications" formControlName="certifications" #certifications size="7" name="certifications" id="certifications">
+                </select>
+            </div>
+            <div class="btn-box">
+                <button class="btnn" (click)="backForm5()">Back</button>
+                <button class="btnn" (click)="nextForm5()">Next</button>
+            </div>
+        </form>
+
+        <!-- STEP 6 -->
+
+        <form id="form6" [formGroup]="myForm6" #form6>
+            <h2>Volunteering and Community service</h2>
+            <h4>Step 6</h4>
+            <div class="flex">
+                <div class="txt">
+                    <input type="text" #name6 name="name" required>
+                    <span></span>
+                    <label>Name</label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" #description6 rows="2"></textarea>
+            </div>
+            <div class="flex">
+                <div class="btn-add">
+                    <button class="btnn" (click)="addVolunteering()">Add</button>
+                </div>
+            </div>
+            <div class="input-box">
+                <select class="volunteering" formControlName="volunteering" #volunteering size="6" name="volunteering" id="volunteering">
+                </select>
+            </div>
+            <div class="btn-box">
+                <button class="btnn" (click)="backForm6()">Back</button>
+                <button class="btnn" (click)="nextForm6()">Next</button>
+            </div>
+        </form>
+
+        <!-- STEP 7 -->
+
+        <form id="form7" [formGroup]="myForm7" #form7>
+            <h2>References</h2>
+            <h4>Step 7</h4>
+            <div class="flex">
+                <div class="txt">
+                    <input type="text" #jobTitle name="job_title" required>
+                    <span></span>
+                    <label>Job title</label>
+                </div>
+                <div class="txt">
+                    <input type="text" #email7 name="email" required>
+                    <span></span>
+                    <label>Email</label>
+                </div>
+            </div>
+            <div class="flex">
+                <div class="txt">
+                    <input type="text" #phone name="phone" required>
+                    <span></span>
+                    <label>Phone</label>
+                </div>
+                <div class="btn-add">
+                    <button class="btnn" (click)="addReference()">Add</button>
+                </div>
+            </div>
+            <div class="input-box">
+                <select class="references" formControlName="references" #references size="7" name="references" id="references">
+                </select>
+            </div>
+            <div class="btn-box">
+                <button class="btnn" (click)="backForm7()">Back</button>
+                <button class="btnn-finish">Finish</button>
+            </div>
+        </form>
+    </div>
+</div> 
