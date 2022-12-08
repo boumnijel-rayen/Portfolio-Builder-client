@@ -7,7 +7,7 @@
             <h2>General Information</h2>
             <h4>Step 1</h4>
             <div class="txt">
-                <input type="text" formGroupName="fullname" name="fullname" required>
+                <input type="text" formControlName="fullname" name="fullname" required>
                 <span></span>
                 <label>Full name</label>
             </div>
@@ -216,12 +216,17 @@
                     <span></span>
                     <label>Email</label>
                 </div>
-            </div>
-            <div class="flex">
                 <div class="txt">
                     <input type="text" #phone name="phone" required>
                     <span></span>
                     <label>Phone</label>
+                </div>
+            </div>
+            <div class="flex">
+                <div class="txt">
+                    <input type="text" #title7 name="title" required>
+                    <span></span>
+                    <label>Title</label>
                 </div>
                 <div class="btn-add">
                     <button class="btnn" (click)="addReference()">Add</button>
@@ -233,7 +238,17 @@
             </div>
             <div class="btn-box">
                 <button class="btnn" (click)="backForm7()">Back</button>
-                <button class="btnn-finish">Finish</button>
+                <button class="btnn-finish" (click)="finish()">Finish</button>
+            </div>
+        </form>
+
+        <!-- FINISH -->
+
+        <form id="finish" #finishForm>
+            <h3>Finish <img src="/assets/img/finish.png" alt=""></h3>
+            <img src="/assets/img/done.png" alt="">
+            <div class="btn-box">
+                <button class="btnn">Go To Dashboard</button>
             </div>
         </form>
     </div>

@@ -1,5 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Accomplishment} from 'src/app/interfaces/accomplishment';
+import { Award } from 'src/app/interfaces/award';
+import { Certification } from 'src/app/interfaces/certification';
+import { Reference } from 'src/app/interfaces/reference';
+import { Volunteering } from 'src/app/interfaces/volunteering';
 
 @Component({
   selector: 'app-create-portfolio',
@@ -35,6 +40,7 @@ export class CreatePortfolioComponent implements OnInit {
   @ViewChild('jobTitle') jobTitle: any;
   @ViewChild('email7') email7: any;
   @ViewChild('phone') phone: any;
+  @ViewChild('title7') title7: any;
 
   @ViewChild('form1') form1: any;
   @ViewChild('form2') form2: any;
@@ -43,6 +49,15 @@ export class CreatePortfolioComponent implements OnInit {
   @ViewChild('form5') form5: any;
   @ViewChild('form6') form6: any;
   @ViewChild('form7') form7: any;
+  @ViewChild('finishForm') finishForm: any;
+
+  generalInfos: any;
+  biography: any;
+  accomplishmentsList: Array<Accomplishment> = [];
+  awardsList: Array<Award> = [];
+  certificationsList: Array<Certification> = [];
+  volunteeringList: Array<Volunteering> = [];
+  referencesList: Array<Reference> = [];
 
   constructor(private formBuilder : FormBuilder) { 
     this.myForm1 = this.formBuilder.group({
@@ -77,7 +92,7 @@ export class CreatePortfolioComponent implements OnInit {
   }
 
   addAccomplishment() {
-    var str =this.accomplishment.nativeElement.value+"  "+this.category.nativeElement.value+"  "+this.proof.nativeElement.value;
+    var str =this.accomplishment.nativeElement.value+"<-->"+this.category.nativeElement.value+"<-->"+this.proof.nativeElement.value;
     this.accomplishment.nativeElement.value = "";
     this.category.nativeElement.value = "";
     this.proof.nativeElement.value = "";
@@ -85,7 +100,7 @@ export class CreatePortfolioComponent implements OnInit {
   }
 
   addAward() {
-    var str =this.title.nativeElement.value+"  "+this.level.nativeElement.value+"  "+this.date.nativeElement.value+"  "+this.proof4.nativeElement.value;
+    var str =this.title.nativeElement.value+"<-->"+this.level.nativeElement.value+"<-->"+this.date.nativeElement.value+"<-->"+this.proof4.nativeElement.value;
     this.title.nativeElement.value = "";
     this.level.nativeElement.value = "";
     this.date.nativeElement.value = "";
@@ -94,7 +109,7 @@ export class CreatePortfolioComponent implements OnInit {
   }
 
   addCertification() {
-    var str =this.title5.nativeElement.value+"  "+this.description.nativeElement.value+"  "+this.linkD.nativeElement.value;
+    var str =this.title5.nativeElement.value+"<-->"+this.description.nativeElement.value+"<-->"+this.linkD.nativeElement.value;
     this.title5.nativeElement.value = "";
     this.linkD.nativeElement.value = "";
     this.description.nativeElement.value = "";
@@ -102,28 +117,31 @@ export class CreatePortfolioComponent implements OnInit {
   }
 
   addVolunteering() {
-    var str =this.name6.nativeElement.value+"  "+this.description6.nativeElement.value;
+    var str =this.name6.nativeElement.value+"<-->"+this.description6.nativeElement.value;
     this.name6.nativeElement.value = "";
     this.description6.nativeElement.value = "";
     this.volunteering.nativeElement.options.add(new Option(str,str));
   }
 
   addReference() {
-    var str =this.jobTitle.nativeElement.value+"  "+this.email7.nativeElement.value+"  "+this.phone.nativeElement.value;
+    var str =this.jobTitle.nativeElement.value+"<-->"+this.email7.nativeElement.value+"<-->"+this.phone.nativeElement.value+"<-->"+this.title7.nativeElement.value;
     this.jobTitle.nativeElement.value = "";
     this.email7.nativeElement.value = "";
     this.phone.nativeElement.value = "";
+    this.title7.nativeElement.value = "";
     this.references.nativeElement.options.add(new Option(str,str));
   }
 
   nextForm1() {
     this.form2.nativeElement.style.display = "block";
     this.form1.nativeElement.style.display = "none";
+    this.generalInfos = this.myForm1.value;
   }
 
   nextForm2() {
     this.form2.nativeElement.style.display = "none";
     this.form3.nativeElement.style.display = "block";
+    this.biography = this.myForm2.value;
   }
 
   backForm2() {
@@ -134,6 +152,11 @@ export class CreatePortfolioComponent implements OnInit {
   nextForm3() {
     this.form3.nativeElement.style.display = "none";
     this.form4.nativeElement.style.display = "block";
+    this.accomplishmentsList = [];
+    for (let i = 0; i < this.accomplishments.nativeElement.options.length; i++) {
+      var splitted = this.accomplishments.nativeElement.options[i].value.split("<-->");
+      this.accomplishmentsList.push(new Accomplishment(splitted[0],splitted[1],splitted[2]));
+    }
   }
 
   backForm3() {
@@ -144,6 +167,11 @@ export class CreatePortfolioComponent implements OnInit {
   nextForm4() {
     this.form4.nativeElement.style.display = "none";
     this.form5.nativeElement.style.display = "block";
+    this.awardsList = [];
+    for (let i = 0; i < this.awards.nativeElement.options.length; i++) {
+      var splitted = this.awards.nativeElement.options[i].value.split("<-->");
+      this.awardsList.push(new Award(splitted[0],splitted[1],splitted[2],splitted[3]));
+    }
   }
 
   backForm4() {
@@ -154,6 +182,11 @@ export class CreatePortfolioComponent implements OnInit {
   nextForm5() {
     this.form5.nativeElement.style.display = "none";
     this.form6.nativeElement.style.display = "block";
+    this.certificationsList = [];
+    for (let i = 0; i < this.certifications.nativeElement.options.length; i++) {
+      var splitted = this.certifications.nativeElement.options[i].value.split("<-->");
+      this.certificationsList.push(new Certification(splitted[0],splitted[2],splitted[1]));
+    }
   }
 
   backForm5() {
@@ -164,6 +197,11 @@ export class CreatePortfolioComponent implements OnInit {
   nextForm6() {
     this.form6.nativeElement.style.display = "none";
     this.form7.nativeElement.style.display = "block";
+    this.volunteeringList = [];
+    for (let i = 0; i < this.volunteering.nativeElement.options.length; i++) {
+      var splitted = this.volunteering.nativeElement.options[i].value.split("<-->");
+      this.volunteeringList.push(new Volunteering(splitted[0],splitted[1]));
+    }
   }
 
   backForm6() {
@@ -174,6 +212,23 @@ export class CreatePortfolioComponent implements OnInit {
   backForm7() {
     this.form6.nativeElement.style.display = "block";
     this.form7.nativeElement.style.display = "none";
+  }
+
+  finish() {
+    this.finishForm.nativeElement.style.display = "block";
+    this.form7.nativeElement.style.display = "none";
+    this.referencesList = [];
+    for (let i = 0; i < this.references.nativeElement.options.length; i++) {
+      var splitted = this.references.nativeElement.options[i].value.split("<-->");
+      this.referencesList.push(new Reference(splitted[0],splitted[1],splitted[2],splitted[3]));
+    }
+    console.log(this.generalInfos);
+    console.log(this.biography);
+    console.log(this.accomplishmentsList);
+    console.log(this.awardsList);
+    console.log(this.certificationsList);
+    console.log(this.volunteeringList);
+    console.log(this.referencesList);
   }
 
 }
