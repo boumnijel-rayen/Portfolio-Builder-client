@@ -34,19 +34,40 @@
         <form id="form2" #form2 [formGroup]="myForm2">
             <h2>Biography</h2>
             <h4>Step 2</h4>
-            <div class="txt">
-                <input type="text" formControlName="email" name="email" required>
-                <span></span>
-                <label>Email</label>
-            </div>
-            <div class="txt">
-                <input type="text" formControlName="website" name="website" required>
-                <span></span>
-                <label>Personal web site</label>
+            <div class="flex">
+                <div class="txt">
+                    <input type="text" formControlName="email" name="email" required>
+                    <span></span>
+                    <label>Email</label>
+                </div>
+                <div class="txt">
+                    <input type="text" formControlName="website" name="website" required>
+                    <span></span>
+                    <label>Personal web site</label>
+                </div>
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label">Biography</label>
                 <textarea class="form-control" formControlName="biography" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <div class="flex">
+                <div class="txt">
+                    <input type="text" #SM formControlName="social_media" name="social_media" required>
+                    <span></span>
+                    <label>Social Media</label>
+                </div>
+                <div class="txt">
+                    <input type="text" #link2 formControlName="linkSM" name="linkSM" required>
+                    <span></span>
+                    <label>Link</label>
+                </div>  
+            </div>
+            <div class="btn-add">
+                <button class="btnn" >Add</button>
+            </div>
+            <div class="input-box">
+                <select class="socialMedia" formControlName="socialMedia" #socialMedia size="4" name="socialMedia" id="socialMedia">
+                </select>
             </div>
             <div class="btn-box">
                 <button class="btnn" (click)="backForm2()">Back</button>

@@ -4,6 +4,7 @@ import { Accomplishment} from 'src/app/interfaces/accomplishment';
 import { Award } from 'src/app/interfaces/award';
 import { Certification } from 'src/app/interfaces/certification';
 import { Reference } from 'src/app/interfaces/reference';
+import { SocialMedia } from 'src/app/interfaces/social-media';
 import { Volunteering } from 'src/app/interfaces/volunteering';
 
 @Component({
@@ -15,6 +16,9 @@ export class CreatePortfolioComponent implements OnInit {
 
   myForm1 : any;
   myForm2 : any;
+  @ViewChild('socialMedia') socialMedia: any;
+  @ViewChild('SM') SM: any;
+  @ViewChild('link2') link2: any;
   myForm3 : any;
   @ViewChild('accomplishments') accomplishments: any;
   @ViewChild('accomplishment') accomplishment: any;
@@ -53,6 +57,7 @@ export class CreatePortfolioComponent implements OnInit {
 
   generalInfos: any;
   biography: any;
+  socialMediaList: Array<SocialMedia> = [];
   accomplishmentsList: Array<Accomplishment> = [];
   awardsList: Array<Award> = [];
   certificationsList: Array<Certification> = [];
@@ -99,6 +104,13 @@ export class CreatePortfolioComponent implements OnInit {
     this.accomplishments.nativeElement.options.add(new Option(str,str));
   }
 
+  addSocialMedia() {
+    var str =this.SM.nativeElement.value+"<-->"+this.link2.nativeElement.value;
+    this.SM.nativeElement.value = "";
+    this.link2.nativeElement.value = "";
+    this.socialMedia.nativeElement.options.add(new Option(str,str));
+  }
+
   addAward() {
     var str =this.title.nativeElement.value+"<-->"+this.level.nativeElement.value+"<-->"+this.date.nativeElement.value+"<-->"+this.proof4.nativeElement.value;
     this.title.nativeElement.value = "";
@@ -142,6 +154,11 @@ export class CreatePortfolioComponent implements OnInit {
     this.form2.nativeElement.style.display = "none";
     this.form3.nativeElement.style.display = "block";
     this.biography = this.myForm2.value;
+    this.socialMediaList = [];
+    for (let i = 0; i < this.socialMedia.nativeElement.options.length; i++) {
+      var splitted = this.socialMedia.nativeElement.options[i].value.split("<-->");
+      this.socialMediaList.push(new SocialMedia(splitted[0],splitted[1]));
+    }
   }
 
   backForm2() {
@@ -224,6 +241,7 @@ export class CreatePortfolioComponent implements OnInit {
     }
     console.log(this.generalInfos);
     console.log(this.biography);
+    console.log(this.socialMediaList);
     console.log(this.accomplishmentsList);
     console.log(this.awardsList);
     console.log(this.certificationsList);

@@ -119,11 +119,11 @@ form .txt input:focus ~ span::before,form .txt input:valid ~ span::before{
     background-color: rgb(255, 78, 78);
 }
 
-#form3 .input-box,#form4 .input-box,#form5 .input-box,#form6 .input-box,#form7 .input-box{
+#form3 .input-box,#form4 .input-box,#form5 .input-box,#form6 .input-box,#form7 .input-box,#form2 .input-box{
     margin-bottom: 20px;
 }
 
-.accomplishments,.awards,.certifications,.volunteering,.references{
+.accomplishments,.awards,.certifications,.volunteering,.references,.socialMedia{
     width: 100%;
 }
 
@@ -189,6 +189,11 @@ select::-ms-expand {
     margin-top: 10px;
 }
 
+#form2 .btn-add{
+    margin-bottom: -32px;
+    margin-top: -15px;
+}
+
 #form4 .btn-add{
     margin-top: 0px;
 }
@@ -239,7 +244,7 @@ select::-ms-expand {
     display: none;
 }
 
-#form2{
+#form1{
     display: none;
 }
 
