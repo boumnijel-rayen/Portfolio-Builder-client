@@ -6,6 +6,7 @@ import { Certification } from 'src/app/interfaces/certification';
 import { Reference } from 'src/app/interfaces/reference';
 import { SocialMedia } from 'src/app/interfaces/social-media';
 import { Volunteering } from 'src/app/interfaces/volunteering';
+import { DataUserService } from 'src/app/services/data-user.service';
 
 @Component({
   selector: 'app-create-portfolio',
@@ -64,7 +65,10 @@ export class CreatePortfolioComponent implements OnInit {
   volunteeringList: Array<Volunteering> = [];
   referencesList: Array<Reference> = [];
 
-  constructor(private formBuilder : FormBuilder) { 
+  token: any = localStorage.getItem('token_User');
+  id_user: any = localStorage.getItem('id_User');
+
+  constructor(private formBuilder : FormBuilder, private dataUserService : DataUserService) { 
     this.myForm1 = this.formBuilder.group({
       fullname : [],
       occupation : [],
@@ -74,7 +78,8 @@ export class CreatePortfolioComponent implements OnInit {
     this.myForm2 = this.formBuilder.group({
       email : [],
       website : [],
-      biography : []
+      biography : [],
+      socialMedia : []
     });
     this.myForm3 = this.formBuilder.group({
       accomplishments : []
@@ -239,14 +244,8 @@ export class CreatePortfolioComponent implements OnInit {
       var splitted = this.references.nativeElement.options[i].value.split("<-->");
       this.referencesList.push(new Reference(splitted[0],splitted[1],splitted[2],splitted[3]));
     }
-    console.log(this.generalInfos);
-    console.log(this.biography);
-    console.log(this.socialMediaList);
-    console.log(this.accomplishmentsList);
-    console.log(this.awardsList);
-    console.log(this.certificationsList);
-    console.log(this.volunteeringList);
-    console.log(this.referencesList);
+    
+    this.dataUserService.createPortfolio(this.generalInfos,this.biography,this.socialMediaList,this.accomplishmentsList,this.awardsList,this.certificationsList,this.volunteeringList,this.referencesList,this.token,this.id_user);
   }
 
 }

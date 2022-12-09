@@ -52,18 +52,18 @@
             </div>
             <div class="flex">
                 <div class="txt">
-                    <input type="text" #SM formControlName="social_media" name="social_media" required>
+                    <input type="text" #SM name="social_media" required>
                     <span></span>
                     <label>Social Media</label>
                 </div>
                 <div class="txt">
-                    <input type="text" #link2 formControlName="linkSM" name="linkSM" required>
+                    <input type="text" #link2 name="linkSM" required>
                     <span></span>
                     <label>Link</label>
                 </div>  
             </div>
             <div class="btn-add">
-                <button class="btnn" >Add</button>
+                <button class="btnn" (click)="addSocialMedia()">Add</button>
             </div>
             <div class="input-box">
                 <select class="socialMedia" formControlName="socialMedia" #socialMedia size="4" name="socialMedia" id="socialMedia">
