@@ -10,7 +10,7 @@
         <li routerLink="/user" (click)="changePoColor()" #portfolio ><i class="bi bi-person-check"></i> portfolio</li>
         <li routerLink="/user/update" (click)="changeUpColor()" #updateP ><i class="bi bi-person-bounding-box"></i> update portfolio</li>
     </ul>
-    <div class="out" >
+    <div class="out" (click)="logout()">
         <i class="bi bi-door-open-fill"></i>
         Log out
     </div>

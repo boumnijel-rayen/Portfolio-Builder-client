@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Accomplishment} from 'src/app/interfaces/accomplishment';
 import { Award } from 'src/app/interfaces/award';
 import { Certification } from 'src/app/interfaces/certification';
@@ -68,7 +69,7 @@ export class CreatePortfolioComponent implements OnInit {
   token: any = localStorage.getItem('token_User');
   id_user: any = localStorage.getItem('id_User');
 
-  constructor(private formBuilder : FormBuilder, private dataUserService : DataUserService) { 
+  constructor(private formBuilder : FormBuilder, private dataUserService : DataUserService, private router : Router) { 
     this.myForm1 = this.formBuilder.group({
       fullname : [],
       occupation : [],
@@ -246,6 +247,10 @@ export class CreatePortfolioComponent implements OnInit {
     }
     
     this.dataUserService.createPortfolio(this.generalInfos,this.biography,this.socialMediaList,this.accomplishmentsList,this.awardsList,this.certificationsList,this.volunteeringList,this.referencesList,this.token,this.id_user);
+  }
+
+  goToDashboard(){
+    this.router.navigate(['/user'])
   }
 
 }

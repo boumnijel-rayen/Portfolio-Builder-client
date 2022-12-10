@@ -133,7 +133,50 @@ export class DataUserService {
         this.http.put('http://localhost:8000/portfolio/user/'+id_user+'/portfolio/'+this.resGI.id,{}, {headers:headers}).subscribe()
       })
       })
+  }
 
-    
+  getIdPortfolio(token : any, id_user : any){
+    const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
+    return this.http.get('http://localhost:8000/portfolio/user/getuserbyid/'+id_user,{headers:headers})
+  }
+
+  getPortfolio(token : any, id : any){
+    const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
+    return this.http.get('http://localhost:8000/portfolio/portfolio/getportfoliobyid/'+id,{headers:headers})
+  }
+
+  getBio(token : any, id : any){
+    const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
+    return this.http.get('http://localhost:8000/portfolio/bio/getbiobyid/'+id,{headers:headers})
+  }
+
+  getSocialMedia(token : any, id : any){
+    const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
+    return this.http.get('http://localhost:8000/portfolio/media/Bio/'+id,{headers:headers})
+  }
+
+  getAccomplishments(token : any, id : any){
+    const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
+    return this.http.get('http://localhost:8000/portfolio/Pacc/Portfolio/'+id,{headers:headers})
+  }
+
+  getAwards(token : any, id : any){
+    const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
+    return this.http.get('http://localhost:8000/portfolio/award/Portfolio/'+id,{headers:headers})
+  }
+
+  getCertifications(token : any, id : any){
+    const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
+    return this.http.get('http://localhost:8000/portfolio/certification/Portfolio/'+id,{headers:headers})
+  }
+
+  getVolunteering(token : any, id : any){
+    const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
+    return this.http.get('http://localhost:8000/portfolio/cservice/Portfolio/'+id,{headers:headers})
+  }
+
+  getReferences(token : any, id : any){
+    const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
+    return this.http.get('http://localhost:8000/portfolio/reference/Portfolio/'+id,{headers:headers})
   }
 }

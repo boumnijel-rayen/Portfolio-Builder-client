@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-layout',
@@ -9,7 +10,7 @@ export class UserLayoutComponent implements OnInit {
 
   @ViewChild('portfolio') portfolio: any;
   @ViewChild('updateP') updateP: any;
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit(): void {
   }
@@ -26,6 +27,12 @@ export class UserLayoutComponent implements OnInit {
     this.updateP.nativeElement.style.color = 'white';
     this.portfolio.nativeElement.style.background = 'rgba(255, 255, 255, 0.979)';
     this.portfolio.nativeElement.style.color = 'rgb(13, 37, 255)';
+  }
+
+  logout(){
+    localStorage.removeItem('token_User')
+    localStorage.removeItem('id_User')
+    this.router.navigate(['/login'])
   }
 
 }

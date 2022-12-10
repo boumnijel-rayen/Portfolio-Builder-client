@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { DataUserService } from 'src/app/services/data-user.service';
 
 @Component({
   selector: 'app-sign-in-user',
@@ -11,10 +12,11 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class SignInUserComponent implements OnInit {
 
+  res:any
   myForm : any
   authFailed : boolean = false;
   helper = new JwtHelperService();
-  constructor(private formBuilder : FormBuilder, private authService : AuthService, private router : Router) { 
+  constructor(private formBuilder : FormBuilder, private authService : AuthService, private router : Router,private dataUser : DataUserService) { 
     this.myForm = this.formBuilder.group({
       email : ['', [Validators.required, Validators.email]],
       password : ['', Validators.required]
@@ -34,7 +36,16 @@ export class SignInUserComponent implements OnInit {
         }
         localStorage.setItem('token_User', data.JWT);
         localStorage.setItem('id_User', decodedToken.id);
-        this.router.navigate(['/user']);
+        this.dataUser.getIdPortfolio(localStorage.getItem('token_User'),decodedToken.id).subscribe(data => {
+          this.res = data
+        }).add(()=>{
+          if (this.res.portfolio == null){
+            this.router.navigate(['/createPortfolio']);
+          }else{
+            this.router.navigate(['/user']);
+          }
+        })
+        
       },
       (error:any) => {
         this.authFailed = true;
