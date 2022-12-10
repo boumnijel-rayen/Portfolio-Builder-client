@@ -17,7 +17,8 @@ const routes: Routes = [
     {path: '', loadChildren: () => import('./views/admin/profiles/profiles.module').then(m => m.ProfilesModule)}
   ]},
   {path: 'user', component: UserLayoutComponent, children: [
-    {path: '', loadChildren: () => import('./views/user/show-portfolio/show-portfolio.module').then(m => m.ShowPortfolioModule)}
+    {path: '', loadChildren: () => import('./views/user/show-portfolio/show-portfolio.module').then(m => m.ShowPortfolioModule)},
+    {path: 'update', loadChildren: () => import('./views/user/update-portfolio/update-portfolio.module').then(m => m.UpdatePortfolioModule)}
   ]}
 ];
 
