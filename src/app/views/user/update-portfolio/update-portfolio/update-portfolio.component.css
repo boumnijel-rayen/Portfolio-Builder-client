@@ -1,0 +1,220 @@
+.component .portfolio{
+    margin-top: 1%;
+    margin-left: 2%;
+    margin-right: 8%;
+    margin-bottom: 2%;  
+}
+
+.portfolio .header{
+    display: flex;
+}
+
+.component .title{
+    width: 60%;
+    padding: 170px 70px 185px 120px;
+    background-image: url("/assets/img/blob.svg");
+    background-repeat: no-repeat;
+    background-size: 600px;
+    background-position: center;
+}
+
+.portfolio .header .career{
+    width: 40%;
+    margin-top: 220px;
+    padding: 20px;
+}
+
+.title h2{
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.career h4{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #5951F7;
+}
+
+.mid .philosophy{
+    padding: 20px;
+}
+
+.mid .biographyAndSM{
+    display: flex;
+}
+
+.biographyAndSM .SM{
+    width: 120%;
+    padding-top: 15px;
+}
+
+.SM p span{
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: black;
+}
+
+.mid .biography{
+    padding: 20px;
+}
+
+.mid h4{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #5951F7;
+}
+
+.footer{
+    padding: 10px;
+}
+
+.footer .accAndAward{
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer h4{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #5951F7;
+    margin-bottom: 20px;
+}
+
+.accs .acc{
+    background-color: #F7BC39;
+    border-radius: 25px;
+    padding: 20px;
+    color: black;
+    margin: 20px 0;
+}
+
+.accs .acc h5{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.accs .acc p{
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.accs .acc p span{
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.awards .award{
+    background-color: #F7BC39;
+    border-radius: 25px;
+    padding: 20px;
+    color: black;
+    margin: 20px 0;
+}
+
+.awards .award h5{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.awards .award p{
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.awards .award p span{
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.footer .certAndVol{
+    display: flex;
+    justify-content: space-around;
+}
+
+.certs .cert{
+    background-color: #F7BC39;
+    border-radius: 25px;
+    padding: 20px;
+    color: black;
+    margin: 20px 0;
+}
+
+.certs .cert h5{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.certs .cert p{
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.certs .cert p span{
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.vols .vol{
+    background-color: #F7BC39;
+    border-radius: 25px;
+    padding: 20px;
+    color: black;
+    margin: 20px 0;
+}
+
+.vols .vol h5{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.vols .vol p{
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.references{
+    padding: 20px;
+}
+
+.references .reference{
+    background-color: #F7BC39;
+    border-radius: 25px;
+    padding: 20px;
+    color: black;
+    margin: 20px 0;
+}
+
+.references .reference h5{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.references .reference h6{
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.references .reference p{
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.references .reference p span{
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.btn{
+    margin: 40px 0;
+}
+
+.btn button{
+    background-color: #5951F7;
+    border-radius: 25px;
+    padding: 10px 20px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+}

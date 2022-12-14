@@ -57,14 +57,6 @@ export class ShowPortfolioComponent implements OnInit {
                     this.dataUser.getReferences(this.token,this.id_portfolio).subscribe(data => {
                       this.refs = data;
                     }).add(()=>{
-                      console.log(this.portfolio);
-                      console.log(this.bio);
-                      console.log(this.medias);
-                      console.log(this.accs);
-                      console.log(this.awards);
-                      console.log(this.certs);
-                      console.log(this.vols);
-                      console.log(this.refs);
                     })
                   })
                 })

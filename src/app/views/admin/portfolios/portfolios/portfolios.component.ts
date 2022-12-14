@@ -14,9 +14,6 @@ export class PortfoliosComponent implements OnInit {
   constructor(private dataAService : DataAdminService) { }
 
   ngOnInit(): void {
-  }
-
-  getAllPortfolios(){
     this.dataAService.getAllPortfolios(this.token).subscribe(
       (data) => {
         this.portfolios = data;
@@ -28,14 +25,9 @@ export class PortfoliosComponent implements OnInit {
   }
 
   deletePortfolio(id: number){
-    this.dataAService.deletePortfolio(id, this.token).subscribe(
-      (data) => {
-        this.getAllPortfolios();
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    this.dataAService.deletePortfolio(id, this.token).subscribe().add(() => {
+      this.ngOnInit();
+    })
   }
 
 }

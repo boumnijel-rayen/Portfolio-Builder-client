@@ -179,4 +179,14 @@ export class DataUserService {
     const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
     return this.http.get('http://localhost:8000/portfolio/reference/Portfolio/'+id,{headers:headers})
   }
+
+  updatePortfolio(token : any, id : any, portfolio : any){
+    const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
+    return this.http.put('http://localhost:8000/portfolio/portfolio/modify/'+id,portfolio,{headers:headers})
+  }
+
+  updateBio(token : any, id : any, bio : any){
+    const headers = new HttpHeaders({ 'Authorization': 'Bearer '+token });
+    return this.http.put('http://localhost:8000/portfolio/bio/modify/'+id,bio,{headers:headers})
+  }
 }
